@@ -19,7 +19,7 @@ function GameObject(attributes) {
   this.dimensions = attributes.dimensions;
 }
 GameObject.prototype.destroy = function () {
-  return `Object was removed from the game.`;
+  return `${this.name} was removed from the game.`;
 }
 
 /*
@@ -149,8 +149,17 @@ Humanoid.prototype.greet = function() {
     // this.language = HumanoidAttributes.language;
   }
   
-  // Humanoid.prototype = Object.create(CharacterStats.prototype);
+  Villain.prototype = Object.create(Humanoid.prototype);
+
+  Villain.prototype
   
   // Humanoid.prototype.greet = function() {
   //     return `${this.name} offers a greeting in ${this.language}.`;
   // };
+
+  function Hero(HeroAttributes) {
+    Humanoid.call(this, HeroAttributes);
+
+  }
+
+  Hero.prototype = Object.create(Humanoid.prototype);
