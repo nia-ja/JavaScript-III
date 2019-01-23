@@ -79,3 +79,5 @@ function myHobbies (hobbies1, hobbies2, hobbies3) {
 }
 
 console.log(myHobbies.call(person, ...hobbies));
+
+console.log("END OF THIS.JS");
