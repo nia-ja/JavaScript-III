@@ -34,15 +34,12 @@ function CharacterStats(CharacterStatsAttributes) {
   GameObject.call(this, CharacterStatsAttributes);
   this.healthPoints = CharacterStatsAttributes.healthPoints;
   this.name = CharacterStatsAttributes.name;
-  this.takeDamage = CharacterStatsAttributes.takeDamage;
 }
 
 CharacterStats.prototype = Object.create(GameObject.prototype);
 
 CharacterStats.prototype.takeDamage = function() {
-  if(this.destroy) {
-    return `${this.name} took damage.`
-  }
+    return `${this.name} took damage.`;
 };
 
 /*
@@ -60,15 +57,14 @@ function Humanoid(HumanoidAttributes) {
   this.team = HumanoidAttributes.team;
   this.weapons = HumanoidAttributes.weapons;
   this.language = HumanoidAttributes.language;
-  this.greet = HumanoidAttributes.greet;
 }
 
 Humanoid.prototype = Object.create(CharacterStats.prototype);
 
 Humanoid.prototype.greet = function() {
-  return `${this.name} offers a greeting in ${this.language}.`
-}
- 
+    return `${this.name} offers a greeting in ${this.language}.`;
+};
+
 /*
   * Inheritance chain: GameObject -> CharacterStats -> Humanoid
   * Instances of Humanoid should have all of the same properties as CharacterStats and GameObject.
@@ -127,6 +123,8 @@ Humanoid.prototype.greet = function() {
     language: 'Elvish',
   });
 
+  console.log(archer);
+
   console.log(mage.createdAt); // Today's date
   console.log(archer.dimensions); // { length: 1, width: 2, height: 4 }
   console.log(swordsman.healthPoints); // 15
@@ -143,3 +141,16 @@ Humanoid.prototype.greet = function() {
   // * Create Villain and Hero constructor functions that inherit from the Humanoid constructor function.  
   // * Give the Hero and Villains different methods that could be used to remove health points from objects which could result in destruction if health gets to 0 or drops below 0;
   // * Create two new objects, one a villain and one a hero and fight it out with methods!
+
+  function Villain(VillainAttributes) {
+    Humanoid.call(this, VillainAttributes);
+    // this.team = HumanoidAttributes.team;
+    // this.weapons = HumanoidAttributes.weapons;
+    // this.language = HumanoidAttributes.language;
+  }
+  
+  // Humanoid.prototype = Object.create(CharacterStats.prototype);
+  
+  // Humanoid.prototype.greet = function() {
+  //     return `${this.name} offers a greeting in ${this.language}.`;
+  // };
